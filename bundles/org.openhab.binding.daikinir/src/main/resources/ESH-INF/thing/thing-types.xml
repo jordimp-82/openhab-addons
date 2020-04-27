@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="daikinir"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<thing-type id="daikin_ac_unit">
+		<label>Daikin AC Unit</label>
+		<description>Daikin AC Unit</description>
+
+		<channels>
+		<channel id="power" typeId="acunit-power" />
+			<channel id="settemp" typeId="acunit-settemp" />
+			<channel id="mode" typeId="acunit-mode" />
+			<channel id="fanmode" typeId="acunit-fanmode" />
+			<channel id="swing" typeId="acunit-swing" />
+			<channel id="econo" typeId="acunit-econo" />
+			<channel id="comfort" typeId="acunit-comfort" />
+			<channel id="powerful" typeId="acunit-powerful" />
+			<channel id="timermode" typeId="acunit-timermode" />
+			<channel id="timerduration" typeId="acunit-timerduration" />
+			<channel id="statechanged" typeId="acunit-statechanged" />
+		</channels>
+
+		<config-description>
+			<parameter name="config1" type="text" required="true">
+				<label>Sample Parameter</label>
+				<description>This is a sample text configuration parameter</description>
+			</parameter>
+		</config-description>
+
+	</thing-type>
+
+	<!-- Sample Channel Type -->
+	<channel-type id="acunit-power">
+		<item-type>Switch</item-type>
+		<label>Power</label>
+		<description>Power for the AC unit</description>
+	</channel-type>
+
+	<channel-type id="acunit-settemp">
+		<item-type>Number:Temperature</item-type>
+		<label>Set Point</label>
+		<description>The set point temperature</description>
+		<category>Temperature</category>
+		<state pattern="%d %unit%" step="1" />
+	</channel-type>
+
+	<channel-type id="acunit-mode">
+		<item-type>String</item-type>
+		<label>Mode</label>
+		<description>Current mode of the AC unit</description>
+		<state>
+			<options>
+				<option value="AUTO">auto</option>
+				<option value="DEHUMIDIFIER">dehumidifier</option>
+				<option value="COLD">cooling</option>
+				<option value="HEAT">heating</option>
+				<option value="FAN">fan</option>
+			</options>
+		</state>
+	</channel-type>
+
+	<channel-type id="acunit-fanmode">
+		<item-type>String</item-type>
+		<label>Fan Mode</label>
+		<description>Current fan mode setting of the AC unit</description>
+		<state>
+			<options>
+				<option value="AUTO">auto</option>
+				<option value="SILENCE">silence</option>
+				<option value="MANUAL">manual</option>
+				<option value="LEVEL_2">level 2</option>
+				<option value="LEVEL_3">level 3</option>
+				<option value="LEVEL_4">level 4</option>
+				<option value="LEVEL_5">level 5</option>
+			</options>
+		</state>
+	</channel-type>
+	
+	<channel-type id="acunit-swing">
+		<item-type>Switch</item-type>
+		<label>Fan Swing</label>
+		<description>Current fan swing setting of the AC unit</description>
+	</channel-type>
+
+	<channel-type id="acunit-econo">
+		<item-type>Switch</item-type>
+		<label>Econo</label>
+		<description>Current econo setting of the AC unit</description>
+	</channel-type>
+
+	<channel-type id="acunit-comfort">
+		<item-type>Switch</item-type>
+		<label>Comfort</label>
+		<description>Current comfort setting for the AC unit</description>
+	</channel-type>
+
+	<channel-type id="acunit-powerful">
+		<item-type>Switch</item-type>
+		<label>Powerful</label>
+		<description>Current powerful setting for the AC unit</description>
+	</channel-type>
+
+	<channel-type id="acunit-timermode">
+		<item-type>Switch</item-type>
+		<label>Timer Mode</label>
+		<description>Current timer setting for the AC unit</description>
+	</channel-type>
+
+	<channel-type id="acunit-timerduration">
+		<item-type>Number</item-type>
+		<label>Timer Duration</label>
+		<description>Current timer duration setting for the AC unit</description>
+		<state pattern="%d %unit%" step="1" />
+	</channel-type>
+
+    <channel-type id="acunit-statechanged">
+        <item-type>Switch</item-type>
+        <label>Notify state changed</label>
+        <description>Binding notifies that a state changed</description>
+    </channel-type>
+
+</thing:thing-descriptions>
